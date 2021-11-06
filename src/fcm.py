@@ -3,8 +3,7 @@ from pathlib import Path
 import pickle
 import sys
 
-# python3 fcm.py example.txt output.txt 3
-
+# python3 fcm.py ..\example\example.txt ..\example\output.txt 3
 
 def createHashMapTable(key, x, table, filePathToSave):
     for counter in range(key, len(x)+1):

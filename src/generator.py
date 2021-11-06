@@ -4,10 +4,10 @@ import pickle
 import math
 import sys
 import platform
-# C:\\Users\\rFael\\OneDrive\\Ambiente de Trabalho\\Mestrado EI\\2021-2022\\TAI\\Projeto_01\\output.txt
+import time
 
 ##Use Mode
-#python3 fcm.py example.txt output.txt 3
+# python3 generator.py ..\example\output.txt 10 3 ola 2
 
 def generator(path, size, nSymbols, sequence, alpha):
     x = []
@@ -67,11 +67,8 @@ def generator(path, size, nSymbols, sequence, alpha):
     print("----------------------------------------------------------------")
 
 
-# C:\\Users\\rFael\\OneDrive\\Ambiente de Trabalho\\Mestrado EI\\2021-2022\\TAI\\Projeto_01\\output.txt
-
-
 def usage():
-    print("Usage: python3 fcm.py \n\t<path_file: string> \n\t<number of symbols:int>\n\t-k <key:int>\n\t<Words sequence:string>\n\t <alpha: float>" )
+    print("Usage: python3 generator.py \n\t<path_file: string> \n\t<number of symbols:int>\n\t-k <key:int>\n\t<Words sequence:string>\n\t <alpha: float>" )
 
 
 if __name__ == "__main__":
@@ -87,5 +84,8 @@ if __name__ == "__main__":
     size = int(arguments[3])
     sequence = str(arguments[4])
     alpha = float(arguments[5])
-
+    
+    t0 = time.time()
     generator(path, size,nSymbols, sequence, alpha)
+    t1 = time.time()
+    print("Tempo que demora a gerar o texto: "+ str(t1-t0))

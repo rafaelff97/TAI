@@ -3,7 +3,7 @@ from pathlib import Path
 import pickle
 import sys
 
-# python3 fcm.py example.txt output.txt 3
+# python3 fcm.py ..\example\example.txt ..\example\output.txt 3
 
 
 def createHashMapTable(key, x, table, filePathToSave):
@@ -78,8 +78,6 @@ def readText(path, key, filePathToSave):
         createHashMapTable(key, x, table, filePathToSave)
     else:
         createTable(key, x, table, filePathToSave)
-
-    # C:\\Users\\rFael\\OneDrive\\Ambiente de Trabalho\\Mestrado EI\\2021-2022\\TAI\\Projeto_01\\example.txt
 
 
 def usage():
