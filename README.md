@@ -1,4 +1,4 @@
-Trabalho 1
+Trabalho 1\n
 O objetivo do programa é criar um modelo com a finalidade de coletar informações estatísticas sobre textos, utilizando modelos de contexto finito.
 Um modelo de contexto finito (Markov), de ordem k, produz a distribuição de probabilidade do próximo símbolo em uma sequência de símbolos, considerando a história recente até a profundidade k.
 
