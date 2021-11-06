@@ -47,11 +47,10 @@ def generator(path, size, nSymbols, sequence, alpha):
 
         # print(summation)
         for j in tabela[i]:
-            # if tabela[i][j] != 0:
-            tabela[i][j] = ((tabela[i][j] + alpha) /
-                            (summation + (alpha * nPossibleSymbols)))
-            h += -tabela[i][j] * math.log(tabela[i][j], 2)
-
+            if tabela[i][j] != 0:
+                tabela[i][j] = ((tabela[i][j] + alpha) /
+                                (summation + (alpha * nPossibleSymbols)))
+                h += abs(-tabela[i][j] * math.log(tabela[i][j], 2))
         hFinal += h * (summation / summationTotal)
         summation = 0
         nPossibleSymbols = 0
@@ -61,7 +60,7 @@ def generator(path, size, nSymbols, sequence, alpha):
     # print("Tabela:")
     # print(tabela)
     print("----------------------------------------------------------------")
-    print("SumatÃ³rio total:"+str(summationTotal))
+    print("Sumatorio total:"+str(summationTotal))
     print("----------------------------------------------------------------")
     print("hFinal:" + str(hFinal))
     print("----------------------------------------------------------------")
@@ -77,7 +76,6 @@ if __name__ == "__main__":
     if len(arguments) != 6:
         usage()
         sys.exit(2)
-
 
     path  = str(arguments[1])
     nSymbols = int(arguments[2])

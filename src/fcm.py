@@ -6,6 +6,7 @@ import sys
 # python3 fcm.py ..\example\example.txt ..\example\output.txt 3
 
 
+
 def createHashMapTable(key, x, table, filePathToSave):
     for counter in range(key, len(x)+1):
         #print("contador " + str(contador))
@@ -59,7 +60,7 @@ def createTable(key, x, table, filePathToSave):
 
 
 def readText(path, key, filePathToSave):
-    f = open(path)
+    f = open(path, errors="ignore")
     text = f.readlines()
     x = []
     for line in text:
