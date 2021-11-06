@@ -3,15 +3,13 @@ import string
 import pickle
 import math
 import sys
-import platform
 import time
 
 ##Use Mode
 # python3 generator.py ..\example\output.txt 10 3 ola 2
 
+
 def generator(path, size, nSymbols, sequence, alpha):
-    if alpha == 0:
-        alpha = 1
     x = []
     path = open(path, "rb")
     tabela = pickle.load(path)
@@ -49,9 +47,9 @@ def generator(path, size, nSymbols, sequence, alpha):
 
         # print(summation)
         for j in tabela[i]:
-            if tabela[i][j] != 0 :
-                tabela[i][j] = ((tabela[i][j] + alpha) /
-                                (summation + (alpha * nPossibleSymbols)))
+            # if tabela[i][j] != 0:
+            tabela[i][j] = ((tabela[i][j] + alpha) /
+                            (summation + (alpha * nPossibleSymbols)))
             h += -tabela[i][j] * math.log(tabela[i][j], 2)
 
         hFinal += h * (summation / summationTotal)
@@ -63,7 +61,7 @@ def generator(path, size, nSymbols, sequence, alpha):
     # print("Tabela:")
     # print(tabela)
     print("----------------------------------------------------------------")
-    print("Sumatório total:"+str(summationTotal))
+    print("SumatÃ³rio total:"+str(summationTotal))
     print("----------------------------------------------------------------")
     print("hFinal:" + str(hFinal))
     print("----------------------------------------------------------------")
@@ -86,7 +84,7 @@ if __name__ == "__main__":
     size = int(arguments[3])
     sequence = str(arguments[4])
     alpha = float(arguments[5])
-    
+
     t0 = time.time()
     generator(path, size,nSymbols, sequence, alpha)
     t1 = time.time()

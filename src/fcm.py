@@ -5,6 +5,7 @@ import sys
 
 # python3 fcm.py ..\example\example.txt ..\example\output.txt 3
 
+
 def createHashMapTable(key, x, table, filePathToSave):
     for counter in range(key, len(x)+1):
         #print("contador " + str(contador))
@@ -38,7 +39,7 @@ def createTable(key, x, table, filePathToSave):
         #print("combinacao " + combinacao)
         if combination not in table:
             table[combination] = {}
-            for i in range(33, 127):
+            for i in range(32, 127):
                 table[combination][chr(i)] = 0
 
         nextLetter = "".join(x[counter:counter+1])
@@ -77,8 +78,6 @@ def readText(path, key, filePathToSave):
         createHashMapTable(key, x, table, filePathToSave)
     else:
         createTable(key, x, table, filePathToSave)
-
-    # C:\\Users\\rFael\\OneDrive\\Ambiente de Trabalho\\Mestrado EI\\2021-2022\\TAI\\Projeto_01\\example.txt
 
 
 def usage():
