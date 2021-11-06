@@ -49,9 +49,9 @@ def generator(path, size, nSymbols, sequence, alpha):
 
         # print(summation)
         for j in tabela[i]:
-            #if tabela[i][j] != 0 :
-            tabela[i][j] = ((tabela[i][j] + alpha) /
-                            (summation + (alpha * nPossibleSymbols)))
+            if tabela[i][j] != 0 :
+                tabela[i][j] = ((tabela[i][j] + alpha) /
+                                (summation + (alpha * nPossibleSymbols)))
             h += -tabela[i][j] * math.log(tabela[i][j], 2)
 
         hFinal += h * (summation / summationTotal)
