@@ -3,7 +3,7 @@ import string
 import pickle
 import math
 import sys
-import platform
+import time
 
 ##Use Mode
 # python3 generator.py ..\example\output.txt 10 3 ola 2
@@ -85,4 +85,7 @@ if __name__ == "__main__":
     sequence = str(arguments[4])
     alpha = float(arguments[5])
 
+    t0 = time.time()
     generator(path, size,nSymbols, sequence, alpha)
+    t1 = time.time()
+    print("Tempo que demora a gerar o texto: "+ str(t1-t0))
