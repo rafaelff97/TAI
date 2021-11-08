@@ -2,9 +2,9 @@ from math import e, log2
 from pathlib import Path
 import pickle
 import sys
+import math
 
 # python3 fcm.py ..\example\example.txt ..\example\output.txt 3
-
 
 
 def createHashMapTable(key, x, table, filePathToSave):
@@ -40,7 +40,7 @@ def createTable(key, x, table, filePathToSave):
         #print("combinacao " + combinacao)
         if combination not in table:
             table[combination] = {}
-            for i in range(32, 127):
+            for i in range(33, 127):
                 table[combination][chr(i)] = 0
 
         nextLetter = "".join(x[counter:counter+1])
@@ -60,7 +60,7 @@ def createTable(key, x, table, filePathToSave):
 
 
 def readText(path, key, filePathToSave):
-    f = open(path, errors="ignore")
+    f = open(path)
     text = f.readlines()
     x = []
     for line in text:
@@ -75,7 +75,12 @@ def readText(path, key, filePathToSave):
     # tamanho do texto
     textSize = Path(path).stat().st_size
 
-    if textSize > 250:
+    #descobrir a quantidade de carateres unicos
+    cardinality = len(''.join(set(x)))
+
+    fcm_size = ( math.pow(cardinality, key) )* cardinality * 16 / 8 / 1024 / 1024 
+    print(str(fcm_size))
+    if fcm_size > 250:
         createHashMapTable(key, x, table, filePathToSave)
     else:
         createTable(key, x, table, filePathToSave)
